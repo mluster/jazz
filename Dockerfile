@@ -1,4 +1,4 @@
-FROM phusion/baseimage:latest
+FROM phusion/baseimage:master
 
 RUN DEBIAN_FRONTEND=noninteractive
 RUN locale-gen en_US.UTF-8
@@ -24,7 +24,7 @@ RUN add-apt-repository ppa:ondrej/php -y && \
 
 
 
-ARG VERSION=8.0
+ARG VERSION=8.2
 RUN apt-get install -y \
         php${VERSION} \
         php${VERSION}-common \
@@ -34,11 +34,8 @@ RUN apt-get install -y \
         php${VERSION}-dev \
         php${VERSION}-gd \
         php${VERSION}-igbinary \
-        php${VERSION}-imap \
         php${VERSION}-intl \
-        php${VERSION}-ldap \
         php${VERSION}-mbstring \
-        php${VERSION}-mysql \
         php${VERSION}-opcache \
         php${VERSION}-readline \
         php${VERSION}-sqlite3 \
@@ -59,10 +56,12 @@ RUN apt-get install -y \
         #php${VERSION}-imagick \
         #php${VERSION}-imap \
         #php${VERSION}-interbase \
+        #php${VERSION}-ldap \
         #php${VERSION}-mailparse \
         #php${VERSION}-memcached \
         #php${VERSION}-mongodb \
         #php${VERSION}-msgpack \
+        #php${VERSION}-mysql \
         #php${VERSION}-oauth \
         #php${VERSION}-odbc \
         #php${VERSION}-pcov \

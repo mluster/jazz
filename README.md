@@ -2,6 +2,6 @@
 
 ## Dockerfile
 ```bash
-docker build -t jazz .
-docker create --name=jazz --volume=./:/var/www jazz
+docker build [--no-cache] -t jazz .
+docker create --name=jazz --volume=./:/opt/project jazz
 ```

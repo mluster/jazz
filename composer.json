@@ -18,25 +18,24 @@
     },
 
     "require": {
-        "php": "~8.1",
-        "ext-json": "*"
+        "php": "^8.1|^8.2"
     },
     "require-dev": {
         "mockery/mockery": "~1.5",
-        "phpunit/phpunit": "~9.5",
-        "squizlabs/php_codesniffer": "~3.6",
-        "phpmd/phpmd": "~2.12",
-        "phploc/phploc": "~7.0"
+        "phpunit/phpunit": "^10.1",
+        "phpmd/phpmd": "@stable",
+        "phpstan/phpstan": "^0.12",
+        "squizlabs/php_codesniffer": "^3.5"
     },
 
     "autoload": {
         "psr-4": {
-            "Jazz\\": "src"
+            "Jazz\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JazzTest\\": "tests"
+            "JazzTest\\": "tests/"
         }
     },
 
@@ -46,12 +45,6 @@
         ],
         "phpmd": [
             "./vendor/bin/phpmd src,tests json phpmd.xml --reportfile logs/phpmd.json"
-        ],
-        "phploc": [
-            "./vendor/bin/phploc --count-tests --log-json logs/phploc.json src tests > logs/phploc.out"
-        ],
-        "phpcpd": [
-            "./vendor/bin/phpcpd --log-pmd logs/phpcpd.xml src tests > logs/phpcpd.out"
         ],
         "phpstan": [
             "./vendor/bin/phpstan analyse -c phpstan.neon --error-format=prettyJson src tests > logs/phpstan.json"
@@ -63,8 +56,6 @@
         "analyze": [
             "@phpcs",
             "@phpmd",
-            "@phploc",
-            "@phpcpd",
             "@phpstan",
             "@phpcsfixer"
         ]
